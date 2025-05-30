@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home - Django App</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Courier New", Courier, monospace;
+            display: flex;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+            background-color: #000; /* black background */
+            color: #00ff00; /* green text like CMD */
+        }
+
+        .form-container {
+            background: #000;
+            border: 2px solid #00ff00;
+            padding: 30px 40px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #00ff00;
+        }
+
+        .form-container input[type="text"],
+        .form-container input[type="number"] {
+            width: 92%;
+            padding: 10px 15px;
+            margin-bottom: 15px;
+            border: 1px solid #00ff00;
+            border-radius: 8px;
+            background-color: #000;
+            color: #00ff00;
+        }
+
+        .form-container input::placeholder {
+            color: #00ff00;
+        }
+
+        .form-container button {
+            width: 100%;
+            padding: 12px;
+            background-color: #000;
+            color: #00ff00;
+            border: 1px solid #00ff00;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .form-container button:hover {
+            background-color: #00ff00;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Enter Network Details</h2>
+    <form action="/check/" method="POST">
+        {% csrf_token %}
+        <input type="text" name="param1" placeholder="Parameter 1" required>
+        <input type="text" name="param2" placeholder="Parameter 2" required>
+        <input type="number" name="param3" placeholder="Parameter 3" required>
+        <input type="text" name="param4" placeholder="Parameter 4" required>
+        <input type="text" name="param5" placeholder="Parameter 5" required>
+
+        <button type="submit">Submit</button>
+    </form>
+    {% if prediction_text %}
+        <div id="prediction-result">
+            <label for="output">OUTPUT:</label>
+            <input type="text" id="output" name="OUTPUT" value="{{ prediction_text }}" readonly>
+        </div>
+        {% endif %}
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Terminal Alert</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Courier New", Courier, monospace;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: black;
+            color: #f55;
+        }
+        .card {
+            background-color: black;
+            border: 2px solid #f55;
+            border-radius: 12px;
+            padding: 30px 40px;
+            box-shadow: 0 0 10px #f55;
+            max-width: 500px;
+            text-align: center;
+        }
+        .card h3 {
+            color: #f55;
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+        .card p {
+            font-size: 16px;
+            color: #f55;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h3>⚠️ Alert!</h3>
+    <p>{{ alert_message }}</p>
+    <h4>Prediction Result: {{ prediction_result }}</h4>
+</div>
+
+</body>
+</html>
