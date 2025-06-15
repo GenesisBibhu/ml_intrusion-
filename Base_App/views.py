@@ -17,9 +17,9 @@ def check_sum(request):
             # Make prediction using your ML model
             prediction = predict_intrusion(input_data)
 
-            if prediction == 0:
+            if prediction == 1:
                 return render(request, 'alert.html', {
-                    'alert_message': 'Suspicious activity detected from IP: 192.168.1.25. Immediate action recommended!',
+                    'alert_message': 'Suspicious activity detected. Immediate action recommended!',
                     'prediction_result': prediction
                 })
             else:
